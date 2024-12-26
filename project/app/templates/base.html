@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{%load static%}
+{% load custom_tags %}
+<!-- Coding by CodingNepal || www.codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>Side Navigation Bar in HTML CSS JavaScript</title>
+    <link rel="stylesheet" href="{% static 'style.css'%}" />
+    <link rel="stylesheet" href="{% static 'styleconForm.css'%}" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav id="navbar1" class="navbar">
+     <div class="logo_item">
+    <i class="bx bx-menu" id="sidebarOpen"></i>
+    <a href="{% url 'index' %}">
+        <img src="{% get_site_logo %}" alt="CodingNepal">
+    </a>
+</div>
+
+      <div class="search_bar " style="display: flex;">
+        <input type="text" placeholder="Search" />
+         <a href="{% url 'home'%}"><b><p class="mt-2 ml-5">Home</P></b></a>
+         <a href="{% url 'profile'%}"><b><p class="mt-2 ml-2">Profile</P></b></a>
+         <a href="{% url 'form'%}"><b><p class="mt-2 ml-2">Form</P></b></a>
+
+      </div>
+
+      <div class="navbar_content">
+       
+        
+       
+        <i class='bx bx-bell' ></i>
+        {% if request.user.is_authenticated %}
+          <img src="{% profile_pic %}" alt="" class="profile" />
+        {% else %}
+          <img src="{% static 'image/unknow.png' %}" alt="" class="profile" />
+          
+        {% endif %}
+      </div>
+    </nav>
+
+    {%block sidebar%}
+    {%endblock sidebar%}
+
+    {%block main%}
+    {%endblock main%}
+
+
+
+   
+
+    
+    <!-- JavaScript -->
+    <script src="{% static 'js/main.js'%}"></script>
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'js/jquery.validate.min.js'%}"></script>
+    <script src="{% static 'js/main1.js'%}"></script>
+
+    <style>
+   
+        
+    </style>
+  </body>
+</html>
